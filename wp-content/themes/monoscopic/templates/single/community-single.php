@@ -18,7 +18,7 @@
 
       <?php if (has_post_thumbnail()) : ?>
         <figure class="featured-image">
-          <?php the_post_thumbnail('large'); ?>
+          <?php the_post_thumbnail('1536x1536'); ?>
         </figure>
       <?php endif; ?>
 

@@ -18,6 +18,7 @@ function monoscopic_setup()
 	register_nav_menus(
 		array(
 			'menu-1' => esc_html__('Primary', 'monoscopic'),
+			'menu-2' => esc_html__('Secondary', 'monoscopic'),
 		)
 	);
 
@@ -73,3 +74,27 @@ function modify_archive_title($title)
 	return $title;
 }
 add_filter('get_the_archive_title', 'modify_archive_title');
+
+/**
+ * Custom body class.
+ */
+function custom_body_class($classes)
+{
+	// Clear default WordPress classes
+	$classes = [];
+
+	if (is_singular('library_post')) {
+		$classes[] = 'dark-mode';
+	}
+
+	if (is_post_type_archive('library_post')) {
+		$classes[] = 'dark-mode';
+	}
+
+	if (is_tax('library_category')) {
+		$classes[] = 'dark-mode';
+	}
+
+	return $classes;
+}
+add_filter('body_class', 'custom_body_class');
