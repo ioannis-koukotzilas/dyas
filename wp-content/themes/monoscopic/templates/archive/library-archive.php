@@ -11,25 +11,25 @@
         <?php the_archive_description('<div class="description">', '</div>'); ?>
       </header>
 
-      <div class="posts">
+      <div class="filter-wrapper">
+        <?php get_template_part('template-parts/facets'); ?>
 
-        <?php while (have_posts()) : the_post(); ?>
+        <div class="posts">
+          <?php while (have_posts()) : the_post(); ?>
+            <div class="post">
+              <a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title(); ?>">
+                <?php the_published_date(); ?>
+                <?php the_title('<h3 class="title">', '</h3>'); ?>
+              </a>
 
-          <a class="post" href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title(); ?>">
+              <?php if (get_field('post_summary')) : ?>
+                <div class="summary"><?php the_field('post_summary'); ?></div>
+              <?php endif; ?>
 
-            <?php the_published_date(); ?>
-            <?php the_title('<h3 class="title">', '</h3>'); ?>
-
-            <?php if (get_field('post_summary')) : ?>
-              <div class="summary"><?php the_field('post_summary'); ?></div>
-            <?php endif; ?>
-
-            <?php the_excerpt(); ?>
-
-          </a>
-
-        <?php endwhile; ?>
-
+              <?php the_excerpt(); ?>
+            </div>
+          <?php endwhile; ?>
+        </div>
       </div>
 
       <?php the_posts_navigation(); ?>

@@ -97,9 +97,10 @@ picture {
 --------------------------------------------- */
 a {
   cursor: pointer;
-  display: inline-block;
+  /* display: inline-block; */
   color: rgb(var(--color-primary-950));
-  text-decoration: none;
+  text-decoration: underline;
+  text-underline-offset: 0.15rem;
 }
 
 a:visited {
@@ -260,10 +261,16 @@ button {
 
 /* Attachments */
 
-.single .attachments .title {
+
+.single .related-links .wrapper {
+  margin-bottom: 1.5rem;
+}
+
+.single .attachments .title,
+.single .related-links .title {
   font-size: var(--font-2xl);
   padding-bottom: 0.25rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
   border-bottom: 1px solid;
 }
 
@@ -289,6 +296,17 @@ button {
 
 .archive .page-header .description p:last-child {
   margin: 0;
+}
+
+.archive .filter-wrapper {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  column-gap: 1.5rem;
+  row-gap: 1.5rem;
+}
+
+.archive .facets .facetwp-facet {
+  margin-bottom: 1.5rem;
 }
 
 .archive .posts {
@@ -369,4 +387,23 @@ button {
 
 .site-main {
   flex-grow: 1;
+}
+
+a[target='_blank']:not(a.download)::after {
+  cursor: pointer;
+  font-family: var(--font-symbol);
+  content: '\e89e';
+  vertical-align: text-top;
+  display: inline-block;
+  margin-left: 0.15rem;
+}
+
+a.download::before {
+  font-family: var(--font-symbol);
+  content: '\f090';
+  vertical-align: middle;
+  font-size: 1.25em;
+  line-height: 0;
+  display: inline-block;
+  margin-right: 0.1em;
 }

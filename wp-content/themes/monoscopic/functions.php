@@ -75,12 +75,32 @@ function modify_archive_title($title)
 }
 add_filter('get_the_archive_title', 'modify_archive_title');
 
-/**
- * Custom body class.
- */
+
+// Facets
+add_filter('facetwp_index_row', function ($params, $class) {
+	if ('year' == $params['facet_name']) { // change date_as_year to name of your facet
+		$raw_value = $params['facet_value'];
+		$params['facet_value'] = date('Y', strtotime($raw_value)); // "2019-04" for the permalink
+		$params['facet_display_value'] = date('Y', strtotime($raw_value)); // "April 2019" for the display value
+	}
+	return $params;
+}, 10, 2);
+
+add_filter('facetwp_facet_orderby', function ($orderby, $facet) {
+	if ('year' == $facet['name']) {
+		$orderby = 'f.facet_value DESC';
+	}
+	return $orderby;
+}, 10, 2);
+
+add_filter('facetwp_assets', function ($assets) {
+	unset($assets['front.css']);
+	unset($assets['facetwp-flyout.css']);
+	return $assets;
+});
+
 function custom_body_class($classes)
 {
-	// Clear default WordPress classes
 	$classes = [];
 
 	if (is_singular('library_post')) {
