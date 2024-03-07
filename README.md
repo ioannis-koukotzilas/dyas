@@ -12,4 +12,4 @@ This project is licensed under a Creative Commons Attribution NonCommercial-Shar
 
 ## Developers
 
-Currently being developed and maintained by Monoscopic Studio.
+Currently being developed and maintained by Ioannis Koukotzilas @ Monoscopic Studio.
