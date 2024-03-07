@@ -1,0 +1,121 @@
+/* Facets
+========================================================================== */
+
+@media (max-width: 959px) {
+  .facets .wrapper {
+    display: none;
+  }
+}
+
+.facets .wrapper {
+  padding: 20px 0 40px;
+  position: sticky;
+  top: 82px;
+}
+
+.facetwp-facet {
+  margin-bottom: 1.5rem;
+}
+
+.facetwp-overlay {
+  position: absolute;
+}
+
+.facetwp-display-value {
+  padding-right: 5px;
+}
+
+.facetwp-checkbox {
+  cursor: pointer;
+  width: fit-content;
+  width: -moz-fit-content;
+}
+
+.facetwp-checkbox:hover,
+.facetwp-checkbox.checked {
+  text-decoration: underline;
+}
+
+.facetwp-toggle {
+  display: inline-block;
+  cursor: pointer;
+  margin-top: 0.75rem;
+}
+
+.facetwp-toggle:hover {
+  text-decoration: underline;
+}
+
+.facetwp-hidden {
+  display: none;
+}
+
+/* Facet WP Flyout
+========================================================================== */
+
+.facetwp-flyout-open {
+  margin-bottom: 1rem;
+  display: inline-block;
+  font-weight: var(--font-bold);
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+@media (min-width: 960px) {
+  .facetwp-flyout-open {
+    display: none;
+  }
+}
+
+.facetwp-flyout {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  z-index: 300;
+  width: 85%;
+  max-width: 320px;
+  overflow: auto;
+  background-color: rgb(var(--color-primary-50));
+  visibility: hidden;
+  transform: translateX(100%);
+  transition: visibility 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.facetwp-flyout.active {
+  visibility: visible;
+  transform: translateX(0);
+}
+
+.facetwp-flyout-wrap {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.facetwp-flyout-content {
+  padding: 20px 90px 40px 20px;
+}
+
+.facetwp-flyout-content h3 {
+  display: none;
+}
+
+.facetwp-flyout-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  margin: 20px;
+  cursor: pointer;
+  content: url(../assets/svg/close_FILL0_wght400_GRAD0_opsz24.svg);
+}
+
+.facetwp-flyout-tpl {
+  display: none;
+}
+
+.facetwp-flyout-fog {
+  display: none;
+}
